@@ -1,0 +1,52 @@
+{
+  "bindings": [
+    {
+      "arguments": {},
+      "destination": "messages",
+      "destination_type": "queue",
+      "routing_key": "",
+      "source": "messages",
+      "vhost": "/"
+    }
+  ],
+  "exchanges": [
+    {
+      "arguments": {},
+      "auto_delete": false,
+      "durable": true,
+      "name": "messages",
+      "type": "direct",
+      "vhost": "/"
+    }
+  ],
+  "global_parameters": [],
+  "parameters": [],
+  "permissions": [],
+  "policies": [],
+  "queues": [
+    {
+      "arguments": {
+        "x-queue-type": "quorum"
+      },
+      "auto_delete": false,
+      "durable": true,
+      "name": "messages",
+      "type": "quorum",
+      "vhost": "/"
+    }
+  ],
+  "rabbit_version": "3.11.7",
+  "rabbitmq_version": "3.11.7",
+  "topic_permissions": [],
+  "users": [],
+  "vhosts": [
+    {
+      "limits": [],
+      "metadata": {
+        "description": "Default virtual host",
+        "tags": []
+      },
+      "name": "/"
+    }
+  ]
+}

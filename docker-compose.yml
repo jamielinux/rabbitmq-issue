@@ -1,0 +1,82 @@
+version: '3.8'
+
+networks:
+  rabbitmq:
+
+services:
+
+  rabbit01:
+    image: rabbitmq:3.11.7-management
+    container_name: rabbit01
+    hostname: rabbit01
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./definitions.json:/definitions.json
+    networks:
+      rabbitmq:
+        aliases:
+          - alias
+
+  rabbit02:
+    image: rabbitmq:3.11.7-management
+    container_name: rabbit02
+    hostname: rabbit02
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./definitions.json:/definitions.json
+    networks:
+      rabbitmq:
+        aliases:
+          - alias
+
+  rabbit03:
+    image: rabbitmq:3.11.7-management
+    container_name: rabbit03
+    hostname: rabbit03
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./definitions.json:/definitions.json
+    networks:
+      rabbitmq:
+        aliases:
+          - alias
+
+  rabbit04:
+    image: rabbitmq:3.11.7-management
+    container_name: rabbit04
+    hostname: rabbit04
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./definitions.json:/definitions.json
+    networks:
+      rabbitmq:
+        aliases:
+          - alias
+
+  rabbit05:
+    image: rabbitmq:3.11.7-management
+    container_name: rabbit05
+    hostname: rabbit05
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
+      - ./definitions.json:/definitions.json
+    networks:
+      rabbitmq:
+        aliases:
+          - alias
+
+  consul:
+    image: consul:1.14.3
+    container_name: consul
+    hostname: consul
+    command: agent
+    volumes:
+      - ./consul.hcl:/consul/config/consul.hcl
+    networks:
+      rabbitmq:
+
