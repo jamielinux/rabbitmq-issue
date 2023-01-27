@@ -1,8 +1,5 @@
 version: '3.8'
 
-networks:
-  rabbitmq:
-
 services:
 
   rabbit01:
@@ -13,10 +10,6 @@ services:
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./definitions.json:/definitions.json
-    networks:
-      rabbitmq:
-        aliases:
-          - alias
 
   rabbit02:
     image: rabbitmq:3.11.7-management
@@ -26,10 +19,6 @@ services:
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./definitions.json:/definitions.json
-    networks:
-      rabbitmq:
-        aliases:
-          - alias
 
   rabbit03:
     image: rabbitmq:3.11.7-management
@@ -39,10 +28,6 @@ services:
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./definitions.json:/definitions.json
-    networks:
-      rabbitmq:
-        aliases:
-          - alias
 
   rabbit04:
     image: rabbitmq:3.11.7-management
@@ -52,10 +37,6 @@ services:
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./definitions.json:/definitions.json
-    networks:
-      rabbitmq:
-        aliases:
-          - alias
 
   rabbit05:
     image: rabbitmq:3.11.7-management
@@ -65,10 +46,6 @@ services:
       - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       - ./erlang.cookie:/var/lib/rabbitmq/.erlang.cookie
       - ./definitions.json:/definitions.json
-    networks:
-      rabbitmq:
-        aliases:
-          - alias
 
   consul:
     image: consul:1.14.3
@@ -77,6 +54,4 @@ services:
     command: agent
     volumes:
       - ./consul.hcl:/consul/config/consul.hcl
-    networks:
-      rabbitmq:
 
